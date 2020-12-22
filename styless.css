@@ -20,18 +20,25 @@ input[type=submit]{
     margin: 8px 0;
 }
 
+a{
+    position: absolute;
+    bottom: 95%; 
+    right: 14pt;
+    font-size: 18px;
+}
+
 table {
 font-family: 'Ubuntu Condensed', sans-serif;
 font-size: 18px;
 margin: auto;
-text-align: left;
+text-align: center;
+width: 60%;
 border-collapse: collapse;
-border-radius: 4px;
 box-shadow: 0 0 0 4px;
 color: #452F21;
 }
 th {
-padding: 10px 48px;
+padding: 10px 38px;
 }
 table th:first-child {
 border-top-left-radius: 20px;
@@ -44,12 +51,7 @@ border-top: 4px solid;
 padding: 48px;
 background: white;
 }
-table td:first-child {
-border-bottom-left-radius: 20px;
-}
-table td:last-child {
-border-bottom-right-radius: 20px;
-}
+
 
 /* Set a style for all buttons */
 button {
