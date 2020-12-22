@@ -23,6 +23,8 @@ else //если пользователь не авторизирован, про
             $UID = $_SESSION['id'];
 
             $admin = is_admin($UID);
+            var_dump($admin);
+
         }
     }
 }

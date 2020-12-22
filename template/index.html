@@ -24,8 +24,11 @@
 
 <?
 	If ($UID){?>
-	
+
 <a href="/?action=out">Выход</a>
+	<? if($admin){?>
+<a href="create_task.php">Создать задание</a>
+	<?}?>
 <?}?>
 </body>
 </html>

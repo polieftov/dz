@@ -157,10 +157,10 @@ function online(){
 
 function is_admin($id){
 	include('connection.php');
-	$res = $pdo->query("SELECT roleId FROM users WHERE id='$id'");
-	$row = $res->fetchAll(PDO::FETCH_ASSOC);
+	$res = $pdo->query("SELECT roleId FROM users WHERE id=$id");
+	$row = $res->fetch(PDO::FETCH_ASSOC);
 	if(count($row) == 1){
-		$roleId = $row['roleId'];
+		$roleId = $row[roleId];
 		if ($roleId == 1) return true;
 		else return false;
 	}
