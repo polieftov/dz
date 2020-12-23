@@ -24,13 +24,9 @@
 
 <?
 	If ($UID){?>
-
-<a href="/?action=out">Выход</a>
-	<? if($admin){?>
-<a href="create_task.php">Создать задание</a>
-	<?}?>
-	<?if(!$admin){ require('worker_page.php');
-	}
-}?>
+<a href="/?action=out" class="exit">Выход</a>
+	<? if($admin) require('admin_page.php')?>
+	<? if(!$admin) require('worker_page.php');
+	}?>
 </body>
 </html>

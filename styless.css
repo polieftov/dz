@@ -20,7 +20,13 @@ input[type=submit]{
     margin: 8px 0;
 }
 
-a{
+input[type=submit].small-btn {
+    width: 100px; 
+    margin: 8px 0;
+    text-align: top;
+}
+
+.exit{
     position: absolute;
     bottom: 95%; 
     right: 14pt;
