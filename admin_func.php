@@ -8,9 +8,4 @@ function getAllWorkers() {
 	var_dump($result);
 	return $result;
 }
-
-function createTask() {
-
-	$res = $pdo->query("INSERT INTO tasks (adminId, workerId, task) VALUES ");
-}
 ?>

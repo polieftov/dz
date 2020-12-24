@@ -11,10 +11,14 @@ require('connection.php');
 
 if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role'])){
 	$login = $_POST['login'];
+	$logins = [];
+	$getAllLogins = $pdo->query("SELECT login FROM users");
+	while($loginsDb = $getAllLogins->fetch(PDO::FETCH_ASSOC))
+		array_push($logins, $loginsDb['login']);
 	$password = md5($_POST['password']);
 	$email = $_POST['email'];
 	$role = $_POST['role'];
-	if (filter_var($email, FILTER_VALIDATE_EMAIL) and $login != "" and $password != "") {
+	if (filter_var($email, FILTER_VALIDATE_EMAIL) and $login != "" and $password != "" and !in_array($login, $logins) and $role != NULL) {
    		$query = "INSERT INTO users (login, password, email, roleId) VALUES ('$login', '$password', '$email', '$role')";
    		$result = $pdo->query($query);
    		if($result){
@@ -25,7 +29,7 @@ if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']
    		}
 	}
 	else{
- 	  $Fmessage = "Email указан неправильно.";
+ 	  $Fmessage = "Данные не подходят";
 	}
 }
 ?>

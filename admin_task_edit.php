@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="styless.css">
-</head>
-<body>
 <?php
+	require('layout.php');
 	require('connection.php');
 	$taskId = $_POST['taskId'];
 	$res = $pdo->query("SELECT tasks.id, tasks.adminId, tasks.workerId, tasks.task, tasks.status, users.login FROM tasks, users WHERE tasks.id = '$taskId' AND tasks.workerId = users.id");
