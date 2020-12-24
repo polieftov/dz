@@ -20,7 +20,9 @@ $tasks = $res->fetchAll(PDO::FETCH_ASSOC);
 	</tr>
 	<?php
 	foreach($tasks as $task){
-		echo "<form method='POST'><input type='hidden' name='taskId' value='$task[id]'><tr><td> $task[login] </td><td> $task[task] </td><td> $task[status] </td><td><input class='small-btn' type='submit' formaction
+		if ($task['status'] == 1) $strStat = 'выполнено';
+		else $strStat = 'не выполнено';
+		echo "<form method='POST'><input type='hidden' name='taskId' value='$task[id]'><tr><td> $task[login] </td><td> $task[task] </td><td> $strStat </td><td><input class='small-btn' type='submit' formaction
 ='admin_task_edit.php' value='изменить'></td> <td> <input class='small-btn' type='submit' formaction
 ='/' name='delete' value='удалить'> </td></tr></form>";
 	}?>

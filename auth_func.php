@@ -52,7 +52,7 @@ function enter ()
 
 function login() {
 	include('connection.php');  
-	//ini_set ("session.use_trans_sid", true);  
+	  
 	session_start();
 
 	if (isset($_SESSION['id']))//если сесcия есть   
@@ -125,7 +125,7 @@ function login() {
 
 function online(){
 	include('connection.php');
-	echo "gefgm";
+	
 	if(isset($_SESSION['id'])){
 		if(isset($_COOKIE['login']) && isset($_COOKIE['password'])){
 			return true;

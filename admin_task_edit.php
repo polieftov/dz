@@ -27,8 +27,8 @@
 			</td>
 			<td><input type="text" name="taskText" value='<?echo $task['task']; ?>'> </td>
 			<td><select name="taskStatus" selected value=<?echo $task['status']; ?>>
-				<option value="0"> 0 </option>
-				<option value="1"> 1 </option>
+				<option value="0"> не выполнено </option>
+				<option value="1"> выполнено </option>
 			</td>
 		</tr>
 	</table>
