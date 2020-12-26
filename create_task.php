@@ -5,9 +5,19 @@
 	$task = $_POST['task'];
 	$workerId = $_POST['worker'];
 	$admin = $_COOKIE['login'];
-	$adminQ = $pdo->query("SELECT id FROM users WHERE login = '$admin'");
+
+	$adminQ = $pdo->prepare("SELECT id FROM users WHERE login = ?");
+	$adminQ -> bindParam(1, $admin);
+	$adminQ -> execute();
+
 	$adminId = $adminQ->fetch(PDO::FETCH_ASSOC);
-	$res = $pdo->query("INSERT INTO tasks (adminId, workerId, task) VALUES ('$adminId[id]', '$workerId', '$task')");
+
+	$res = $pdo->prepare("INSERT INTO tasks (adminId, workerId, task) VALUES (:adminId, :workerId, :task)");
+	$res ->bindParam(':adminId', $adminId['id']);
+	$res ->bindParam(':workerId', $workerId);
+	$res ->bindParam(':task', $task);
+	$res -> execute();
+
 	if ($res) $Smessage = "Задание отправлено";
 	else $Fmessage = "Ошибка";
 }?>

@@ -59,7 +59,7 @@ function login() {
 	{
 		if(isset($_COOKIE['login']) && isset($_COOKIE['password'])){ //если cookie есть, обновляется время их жизни и возвращается true      
 
-			SetCookie("login", "", time() - 1, '/');            SetCookie("password","", time() - 1, '/');          
+			SetCookie("login", "", time() - 1, '/');            SetCookie("password","", time() - 1, '/');//Если задать '/', cookie будут доступны во всем домене        
 
 			setcookie ("login", $_COOKIE['login'], time() + 50000, '/');            
 
@@ -99,12 +99,9 @@ function login() {
 			$row = $res->fetchAll(PDO::FETCH_ASSOC);         
 			          
 
-			if(count($row) == 1 && md5($row['password']) == $_COOKIE['password']){  //если логин и пароль нашлись в базе данных           
-
-		              
+			if(count($row) == 1 && md5($row['password']) == $_COOKIE['password']){  //если логин и пароль нашлись в базе данных                  
 				$_SESSION['id'] = $row['id']; //записываем в сесиию id              
 				$id = $_SESSION['id'];              
-
 				lastAct($id);               
 				return true;            
 			}           
